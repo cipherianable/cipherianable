@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Products | Ka Leah Paper Per Ream</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <nav>
+        <div class="logo">Ka Leah Paper Per Ream</div>
+        <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="products.html">Products</a></li>
+            <li class="cart-nav" onclick="toggleChat()"><i class="fas fa-shopping-cart"></i><span id="cart-count">0</span></li>
+        </ul>
+    </nav>
+
+    <div class="product-page-header">
+        <h1>Full Product List</h1>
+        <div class="search-container">
+            <i class="fas fa-search"></i>
+            <input type="text" id="productSearch" placeholder="Search (e.g. 'A4', 'Glue', 'Long')..." onkeyup="filterProducts()">
+        </div>
+        <div class="filters">
+            <button class="filter-btn active" data-filter="all">All</button>
+            <button class="filter-btn" data-filter="paper">Paper/Pads</button>
+            <button class="filter-btn" data-filter="writing">Writing</button>
+            <button class="filter-btn" data-filter="envelopes">Envelopes/Folders</button>
+            <button class="filter-btn" data-filter="office">Office Supplies</button>
+        </div>
+    </div>
+
+    <section class="product-grid" id="productGrid">
+        <!-- 1. BOND PAPER -->
+        <div class="card paper" data-name="hard copy bond paper ream a4 short long">
+            <img src="images/hard-copy.jpg" alt="Bond Paper">
+            <h3>Hard Copy Bond Paper</h3>
+            <select class="item-variant">
+                <option value="Short (₱180)">Short - ₱180.00</option>
+                <option value="A4 (₱185)">A4 - ₱185.00</option>
+                <option value="Long (₱220)">Long - ₱220.00</option>
+            </select>
+            <button class="add-btn" onclick="addToCart('Bond Paper', this)">Add to Cart</button>
+        </div>
+
+        <!-- 2. PADS & NOTEBOOKS -->
+        <div class="card paper" data-name="pads grade 1 2 3 notebooks crosswise lengthwise quiz pad yellow pad manila carbon receipt">
+            <img src="images/pads.jpg" alt="Pads">
+            <h3>Notebooks & Pads</h3>
+            <select class="item-variant">
+                <option value="Notebook 10pcs (₱220)">Writing Notebook 10pcs - ₱220</option>
+                <option value="Grade 1 Pad (₱20)">Grade 1 Pad - ₱20</option>
+                <option value="Grade 2 Pad (₱20)">Grade 2 Pad - ₱20</option>
+                <option value="Grade 3 Pad (₱20)">Grade 3 Pad - ₱20</option>
+                <option value="Crosswise (₱17)">Crosswise Pad - ₱17</option>
+                <option value="Lengthwise (₱17)">Lengthwise Pad - ₱17</option>
+                <option value="1/4 Pad (₱10)">1/4 Pad - ₱10</option>
+                <option value="Yellow Pad (₱35)">Yellow Pad 80L - ₱35</option>
+                <option value="Manila Paper (₱9)">Manila Paper - ₱9 each</option>
+                <option value="Carbon Receipt (₱22)">Carbon Receipt - ₱22</option>
+            </select>
+            <button class="add-btn" onclick="addToCart('Pad/Notebook', this)">Add to Cart</button>
+        </div>
+
+        <!-- 3. WRITING -->
+        <div class="card writing" data-name="flexstick ballpen black blue red hbw 2000 correction tape pencil">
+            <img src="images/flexstick.jpg" alt="Writing">
+            <h3>Writing & Correction</h3>
+            <select class="item-variant">
+                <option value="Flexstick Black (₱65)">Flexstick Black 12s - ₱65</option>
+                <option value="Flexstick Red (₱70)">Flexstick Red 12s - ₱70</option>
+                <option value="Flexstick Blue (₱70)">Flexstick Blue 12s - ₱70</option>
+                <option value="HBW 2000 (₱60)">HBW 2000 Black 12s - ₱60</option>
+                <option value="Correction Tape (₱20)">Correction Tape - ₱20</option>
+                <option value="Pencil #2 Box (₱62)">HBW Pencil 12s - ₱62</option>
+                <option value="Pencil Single (₱7)">Pencil per pc - ₱7</option>
+            </select>
+            <button class="add-btn" onclick="addToCart('Writing Tool', this)">Add to Cart</button>
+        </div>
+
+        <div class="card writing" data-name="markers whiteboard permanent red blue black crayons 16 24">
+            <img src="images/markers.jpg" alt="Markers">
+            <h3>Markers & Crayons</h3>
+            <select class="item-variant">
+                <option value="Whiteboard Marker (₱25)">Whiteboard Marker - ₱25</option>
+                <option value="Permanent Marker (₱15)">Permanent Marker - ₱15</option>
+                <option value="Crayons 16s (₱44)">HBW Crayons 16s - ₱44</option>
+                <option value="Crayons 24s (₱55)">HBW Crayons 24s - ₱55</option>
+            </select>
+            <button class="add-btn" onclick="addToCart('Marker/Crayon', this)">Add to Cart</button>
+        </div>
+
+        <!-- 4. ENVELOPES & FOLDERS (BULK) -->
+        <div class="card envelopes" data-name="brown envelope short 50 100 250 500">
+            <img src="images/brown-envelope.jpg" alt="Envelopes">
+            <h3>Brown Envelopes (Short)</h3>
+            <select class="item-variant">
+                <option value="Short 50s (₱115)">50 pcs - ₱115</option>
+                <option value="Short 100s (₱190)">100 pcs - ₱190</option>
+                <option value="Short 250s (₱450)">250 pcs - ₱450</option>
+                <option value="Short 500s (₱800)">500 pcs - ₱800</option>
+            </select>
+            <button class="add-btn" onclick="addToCart('Brown Env Short', this)">Add to Cart</button>
+        </div>
+
+        <div class="card envelopes" data-name="brown envelope long 50 100 250 500">
+            <img src="images/brown-envelope.jpg" alt="Envelopes">
+            <h3>Brown Envelopes (Long)</h3>
+            <select class="item-variant">
+                <option value="Long 50s (₱140)">50 pcs - ₱140</option>
+                <option value="Long 100s (₱250)">100 pcs - ₱250</option>
+                <option value="Long 250s (₱575)">250 pcs - ₱575</option>
+                <option value="Long 500s (₱1000)">500 pcs - ₱1,000</option>
+            </select>
+            <button class="add-btn" onclick="addToCart('Brown Env Long', this)">Add to Cart</button>
+        </div>
+
+        <div class="card envelopes" data-name="white folder short a4 long 25 50 75 100">
+            <img src="images/white-folder.jpg" alt="Folders">
+            <h3>White Folders (Bulk)</h3>
+            <select class="item-variant">
+                <option value="Short 25s (₱130)">Short 25pcs - ₱130</option>
+                <option value="Short 100s (₱430)">Short 100pcs - ₱430</option>
+                <option value="A4 25s (₱140)">A4 25pcs - ₱140</option>
+                <option value="A4 100s (₱490)">A4 100pcs - ₱490</option>
+                <option value="Long 25s (₱145)">Long 25pcs - ₱145</option>
+                <option value="Long 100s (₱510)">Long 100pcs - ₱510</option>
+            </select>
+            <button class="add-btn" onclick="addToCart('White Folder', this)">Add to Cart</button>
+        </div>
+
+        <div class="card envelopes" data-name="specialty plastic classic mail fox best print expanded expanded long coins kraft vellum">
+            <img src="images/expanded.jpg" alt="Specialty">
+            <h3>Specialty Envelopes</h3>
+            <select class="item-variant">
+                <option value="Plastic Short 25s (₱245)">Plastic Short 25s - ₱245</option>
+                <option value="Plastic Long 25s (₱305)">Plastic Long 25s - ₱305</option>
+                <option value="Expanded Long (₱16)">Expanded Long - ₱16</option>
+                <option value="Mail Env Long 500s (₱380)">Mail Long 500s - ₱380</option>
+                <option value="Fox Paper 500s (₱320)">Fox Paper 500s - ₱320</option>
+                <option value="Best Print 500s (₱550)">Best Print 500s - ₱550</option>
+                <option value="Coins Kraft 500s (₱360)">Coins Env 500s - ₱360</option>
+                <option value="Vellum 200gsm (₱50)">Vellum 200gsm - ₱50</option>
+            </select>
+            <button class="add-btn" onclick="addToCart('Spec. Env', this)">Add to Cart</button>
+        </div>
+
+        <!-- 5. OFFICE & TAPES -->
+        <div class="card office" data-name="tape scotch armak small big packaging clear tuff masking 1/2 3/4 duct gray gray duct glue stick white glue">
+            <img src="images/tape.jpg" alt="Tapes">
+            <h3>Tapes & Adhesives</h3>
+            <select class="item-variant">
+                <option value="Scotch 1/2 (₱13)">Armak Scotch 1/2 - ₱13</option>
+                <option value="Scotch 3/4 (₱18)">Armak Scotch 3/4 - ₱18</option>
+                <option value="Scotch 1in Small (₱12)">Scotch 1in Small - ₱12</option>
+                <option value="Packaging Tape (₱25)">Tuff Packaging - ₱25</option>
+                <option value="Masking 1/2 (₱17)">Masking Tape 1/2 - ₱17</option>
+                <option value="Duct Tape (₱55)">Duct Tape Gray - ₱55</option>
+                <option value="White Glue (₱15)">HBW White Glue - ₱15</option>
+                <option value="Glue Stick (₱18)">HBW Glue Stick - ₱18</option>
+            </select>
+            <button class="add-btn" onclick="addToCart('Tape/Adhesive', this)">Add to Cart</button>
+        </div>
+
+        <div class="card office" data-name="stapler staples no 35 heavy duty no 10 fastener index card paper clip small big binder clip sharpener scissors">
+            <img src="images/stapler.jpg" alt="Office">
+            <h3>Office Supplies</h3>
+            <select class="item-variant">
+                <option value="Stapler #35 (₱105)">Kangaro Stapler - ₱105</option>
+                <option value="Staple Wire 35 (₱48)">Staple Wire #35 - ₱48</option>
+                <option value="Heavy Staples (₱36)">Heavy Duty Staples - ₱36</option>
+                <option value="Staple Wire 10 (₱10)">Staple Wire #10 - ₱10</option>
+                <option value="Fastener 50s (₱65)">Paper Fastener 50s - ₱65</option>
+                <option value="Index Card Color (₱115)">Index Card Color - ₱115</option>
+                <option value="Paper Clip Big (₱25)">Paper Clip Big - ₱25</option>
+                <option value="Binder Clip 2in (₱85)">Binder Clips 12s - ₱85</option>
+                <option value="Sharpener (₱5)">Sharpener 2-hole - ₱5</option>
+            </select>
+            <button class="add-btn" onclick="addToCart('Office Item', this)">Add to Cart</button>
+        </div>
+    </section>
+
+    <!-- FLOATING WIDGET -->
+    <div id="chat-widget" class="chat-widget">
+        <div id="chat-card" class="chat-card">
+            <div class="chat-header">
+                <h3><i class="fab fa-facebook-messenger"></i> Your List</h3>
+                <button onclick="toggleChat()">&times;</button>
+            </div>
+            <div class="chat-body">
+                <div id="cart-items-list"></div>
+                <hr>
+                <button onclick="sendToMessenger()" class="messenger-btn">Send to Messenger</button>
+            </div>
+        </div>
+        <button class="chat-fab" onclick="toggleChat()"><i class="fab fa-facebook-messenger"></i></button>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

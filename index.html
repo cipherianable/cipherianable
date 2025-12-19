@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ka Leah Paper Per Ream | Home</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <nav>
+        <div class="logo">Ka Leah Paper Per Ream</div>
+        <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="products.html">Products</a></li>
+            <li class="cart-nav" onclick="toggleChat()"><i class="fas fa-shopping-cart"></i><span id="cart-count">0</span></li>
+        </ul>
+    </nav>
+
+    <header class="hero">
+        <div class="hero-content">
+            <h1>Quality Paper & School Supplies</h1>
+            <p>Providing affordable reams of bond paper and school essentials to our community.</p>
+            <a href="products.html" class="btn">Browse Catalog</a>
+        </div>
+    </header>
+
+    <section class="order-section">
+        <div class="info-box">
+            <h2>Order Instructions</h2>
+            <p>1. Go to <b>Products</b>.<br>2. Add items to your cart.<br>3. Open the <b>Messenger</b> icon to send your order!</p>
+        </div>
+    </section>
+
+    <!-- CHAT WIDGET -->
+    <div id="chat-widget" class="chat-widget">
+        <div id="chat-card" class="chat-card">
+            <div class="chat-header">
+                <h3><i class="fab fa-facebook-messenger"></i> Your List</h3>
+                <button onclick="toggleChat()">&times;</button>
+            </div>
+            <div class="chat-body">
+                <div id="cart-items-list"></div>
+                <hr>
+                <select id="msgType">
+                    <option value="Order">🛒 Place an Order</option>
+                    <option value="Question">❓ Ask a Question</option>
+                </select>
+                <textarea id="extraNotes" placeholder="Additional notes..."></textarea>
+                <button onclick="sendToMessenger()" class="messenger-btn">Open Messenger</button>
+            </div>
+        </div>
+        <button class="chat-fab" onclick="toggleChat()"><i class="fab fa-facebook-messenger"></i></button>
+    </div>
+
+    <footer><p>&copy; 2025 Ka Leah Paper Per Ream | Manila, Philippines</p></footer>
+    <script src="script.js"></script>
+</body>
+</html>
